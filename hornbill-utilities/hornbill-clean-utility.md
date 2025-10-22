@@ -197,7 +197,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
     * ChatSessionIDs - Array of strings - a list of chat session IDs to delete. If no chat session IDs are provided, then ALL chat sessions will be deleted.
 
 ## Running the utility
-When you are ready to clear-down your request, asset or user records:
+When you are ready to clear-down your requests, assets, or user records:
 
 1. Open **conf.json** and add in the necessary configuration.
 1. Open a terminal window.
