@@ -10,12 +10,12 @@
     ],
     "exclude_spellcheck": [
             {
-                "document_path": "hornbill-utilities/hornbill-clean-utility.md",
+                "document_path": "hornbill-utilities/hornbill-clean-utility",
                 "words": [
+                    "cancelled",
                     "organisation",
-                    "organisations",
-                    "cancelled"
-                        ]
+                    "organisations"
+                ]
             }
           ]
   }
