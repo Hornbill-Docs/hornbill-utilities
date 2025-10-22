@@ -15,13 +15,11 @@
     "items": [
       {
         "text": "Introduction",
-        "expand": true,
-        "items": [
-          {
-            "text": "Welcome",
-            "link": "hornbill-utilities/index"
-          }
-        ]
+        "link": "hornbill-utilities/index"
+      },
+      {
+        "text": "Hornbill Clean Utility",
+        "link": "hornbill-utilities/hornbill-clean-utility"
       }
     ]
   },
