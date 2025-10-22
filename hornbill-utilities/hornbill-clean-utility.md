@@ -13,77 +13,78 @@ The Hornbill Cleaner Utility is provided open source under the [Hornbill Communi
 ## Installation Overview
 ### Windows Installation
 * [Download the ZIP archive](https://github.com/hornbill/goHornbillCleaner/releases/latest) relevant to your OS and architecture. This contains the cleaner executable, configuration file and license.
-* Extract the ZIP archive into a folder you would like the application to run from e.g. 'C:\hornbill_cleaner\'.
+* Extract the ZIP archive into a folder you would like the application to run from e.g. `C:\hornbill_cleaner\`.
 
 ## Configuration Overview
 The configuration of this utility is managed through a JSON file (conf.json), which is supplied with each release:
+
 ```
-        "CleanRequests": true,
-        "RequestServices":[
-                1,
-                2,
-                3
-        ],
-        "RequestStatuses":[
-                "status.open",
-                "status.cancelled",
-                "status.closed",
-                "status.resolved"
-        ],
-        "RequestTypes":[
-                "Incident",
-                "Service Request"
-        ],
-        "RequestLogDateFrom":"2016-01-01 00:00:00",
-        "RequestLogDateTo":"-P1D2H3M4S",
-        "RequestClosedDateFrom":"2016-01-01 00:00:00",
-        "RequestClosedDateTo":"2018-01-01 00:00:00",
-        "RequestReferences":[
-                "CHR00000021",
-                "INC00000003"
-        ],
-        "CleanAssets": false,
-        "AssetClassID": "",
-        "AssetFilters": [
-                        {
-                                "ColumnName": "h_name"
-                                "ColumnValue": "YourAssetName",
-                                "Operator": "Equals",
-                                "IsGeneralProperty": true
-                        }
-        ],
-        "CleanUsers": true,
-        "Users":[
-                "UserIDOne",
-                "UserIDTwo"
-        ],
-        "CleanServiceAvailabilityHistory": false,
-        "ServiceAvailabilityServiceIDs": [],
-        "CleanContacts": true,
-        "ContactIDs": [
+"CleanRequests":true,
+"RequestServices":[
+            1,
+            2,
+            3
+],
+"RequestStatuses":[
+   "status.open",
+   "status.cancelled",
+   "status.closed",
+   "status.resolved"
+],
+"RequestTypes":[
+    "Incident",
+    "Service Request"
+],
+"RequestLogDateFrom":"2016-01-01 00:00:00",
+"RequestLogDateTo":"-P1D2H3M4S",
+"RequestClosedDateFrom":"2016-01-01 00:00:00",
+"RequestClosedDateTo":"2018-01-01 00:00:00",
+"RequestReferences":[
+       "CHR00000021",
+       "INC00000003"
+],
+"CleanAssets": false,
+"AssetClassID": "",
+"AssetFilters": [
+                {
+                  "ColumnName": "h_name"
+                  "ColumnValue": "YourAssetName",
+                  "Operator": "Equals",
+                  "IsGeneralProperty": true
+                 }
+],
+"CleanUsers": true,
+"Users":[
+          "UserIDOne",
+          "UserIDTwo"
+],
+"CleanServiceAvailabilityHistory": false,
+"ServiceAvailabilityServiceIDs": [],
+"CleanContacts": true,
+"ContactIDs": [
                 5,
                 8,
                 13,
                 21
-        ],
-        "CleanOrganisations": true,
-        "OrganisationIDs": [
+],
+"CleanOrganisations": true,
+"OrganisationIDs": [
                 34,
                 55
-        ],
-        "CleanSuppliers": true,
-        "SupplierIDs": [
+],
+"CleanSuppliers": true,
+"SupplierIDs": [
                 89,
                 144
-        ],
-        "CleanSupplierContracts": true,
-        "SupplierContractIDs": [
+],
+"CleanSupplierContracts": true,
+"SupplierContractIDs": [
                 "C20210700233",
                 "C20210700377",
-        ],
-        "CleanEmails": false,
-        "EmailFilters": {
-                "FolderIDs": [
+],
+"CleanEmails": false,
+"EmailFilters": {
+       "FolderIDs": [
                         1,
                         7,
                         18
@@ -94,20 +95,20 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
                 "ReceivedTo": "2017-01-01 00:00:00",
                 "Subject": "%out of office%"
         },
-        "CleanReports": true,
-        "ReportIDs": [
+"CleanReports": true,
+"ReportIDs": [
                 1,
                 2,
                 3,
                 5,
                 8,
                 13
-        ],
-        "CleanChatSessions": true,
-        "ChatSessionIDs": [
+],
+"CleanChatSessions": true,
+"ChatSessionIDs": [
                 "CS00354",
                 "CS00346"
-        ],
+],
 ```
 
 ### Clean Requests
@@ -116,29 +117,23 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 * **RequestStatuses** : An array containing Status strings to filter the requests for deletion against. An empty array will remove the Status filter, meaning requests at any status will be deleted.
 * **RequestTypes** : An array containing Request Type strings to filter the requests for deletion against. An empty array will remove the Type filter, meaning requests of any Type will be deleted.
 * **RequestLogDateFrom** : A date to filter requests against log date (requests logged after or equal to this date/time). Can take one of the following values:
-An empty string will remove the Logged From filter.
-A date string in the format YYYY-MM-DD HH:MM:SS.
-A duration string, to calculate a new datetime from the current datetime:
-Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
-See the CalculateTimeDuration function documentation in https://github.com/hornbill/goHornbillHelpers for more details
+        * An empty string will remove the Logged From filter.
+        * A date string in the format YYYY-MM-DD HH:MM:SS.
+        * A duration string, to calculate a new datetime from the current datetime:
+            Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
+            See the CalculateTimeDuration function documentation in https://github.com/hornbill/goHornbillHelpers for more details
 * **RequestLogDateTo** : A date to filter requests against log date (requests logged before or equal to this date/time). Can take one of the following values:
-An empty string will remove the Logged Before filter.
-A date string in the format YYYY-MM-DD HH:MM:SS.
-A duration string, to calculate a new datetime from the current datetime:
-Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
-See the CalculateTimeDuration function documentation in https://github.com/hornbill/goHornbillHelpers for more details
+    * An empty string will remove the Logged Before filter.
+    * A date string in the format YYYY-MM-DD HH:MM:SS.
+    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in https://github.com/hornbill/goHornbillHelpers for more details.
 * **RequestClosedDateFrom** : A date to filter requests against close date (requests closed after or equal to this date/time). Can take one of the following values:
-An empty string will remove the closed From filter.
-A date string in the format YYYY-MM-DD HH:MM:SS.
-A duration string, to calculate a new datetime from the current datetime:
-Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
-See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * An empty string will remove the closed From filter.
+    * A date string in the format YYYY-MM-DD HH:MM:SS.
+    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
 * **RequestClosedDateTo** : A date to filter requests against close date (requests closed before or equal to this date/time). Can take one of the following values:
-An empty string will remove the Closed Before filter.
-A date string in the format YYYY-MM-DD HH:MM:SS.
-A duration string, to calculate a new datetime from the current datetime:
-Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
-See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * An empty string will remove the Closed Before filter.
+    * A date string in the format YYYY-MM-DD HH:MM:SS.
+    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details.
 * **RequestReferences** : An array of Request References to delete. If requests are defined in this array, then ONLY these requests will be deleted. The other parameters above will be ignored. In the example above, requests with reference CHR00000021 and INC00000003 would be deleted, and no other requests would be removed.
 * **KeepRequestsCancelBPTasks** : a boolean (defaulting to false) which if set to true will NOT actually delete the selected requests, but will cancel the Business Process Workflow and any Tasks connected to the request.
 
