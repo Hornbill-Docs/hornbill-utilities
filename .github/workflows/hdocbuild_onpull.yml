@@ -1,0 +1,17 @@
+name: HDocBuildPull
+
+on:
+  # Triggers the workflow on pull request opened or reopened events
+  pull_request_target:
+    types: [opened, reopened]
+    paths-ignore:
+      - '.github/**'
+
+jobs:
+  call-workflow-pull-validate:
+    uses: Hornbill-Docs/hdoc-library/.github/workflows/hdocbuild_shared_pull.yml@main
+    with:
+      branch: ${{ github.event.pull_request.head.sha }}
+      server_url: ${{ github.server_url }}
+      repo: ${{ github.repository }}
+      run_id: ${{ github.run_id }}

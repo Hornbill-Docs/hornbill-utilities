@@ -1,0 +1,9 @@
+_work/
+node_modules/
+package-lock.json
+.wsuo
+.DS_Store
+VSWorkspaceState.json
+slnx.state
+slnx.sqlite
+validated-links.txt

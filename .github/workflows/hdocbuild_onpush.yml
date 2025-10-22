@@ -1,0 +1,15 @@
+name: HDocBuildPush
+on:
+  # Triggers the workflow on push requests
+  push:
+    paths-ignore:
+      - '.github/**'
+  
+  # Allows us to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  call-workflow-push-validate:
+    uses: Hornbill-Docs/hdoc-library/.github/workflows/hdocbuild_shared_push.yml@main
+    with:
+      branch: ${{ github.event.inputs.branch }}

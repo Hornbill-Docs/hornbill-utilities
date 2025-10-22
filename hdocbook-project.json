@@ -1,0 +1,10 @@
+{
+  "docId": "hornbill-utilities",
+  "pdfGeneration": {
+    "enable": true,
+    "exclude_paths": []
+  },
+  "validation": {
+    "exclude_links": []
+  }
+}

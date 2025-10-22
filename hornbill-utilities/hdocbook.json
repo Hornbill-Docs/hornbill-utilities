@@ -1,0 +1,29 @@
+{
+  "docId": "hornbill-utilities",
+  "title": "Hornbill Utilities",
+  "description": "Documentation for Hornbill's advanced utilities",
+  "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
+  "productFamily": "hdocs",
+  "version": "0.0.0",
+  "audience": [
+    "public"
+  ],
+  "languages": [
+    "en"
+  ],
+  "navigation": {
+    "items": [
+      {
+        "text": "Introduction",
+        "expand": true,
+        "items": [
+          {
+            "text": "Welcome",
+            "link": "hornbill-utilities/index"
+          }
+        ]
+      }
+    ]
+  },
+  "tags": []
+}
