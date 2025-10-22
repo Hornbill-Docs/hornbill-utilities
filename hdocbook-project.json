@@ -5,6 +5,18 @@
     "exclude_paths": []
   },
   "validation": {
-    "exclude_links": []
+    "exclude_links": [
+       "https://api.github.com/repos/hornbill/asset-rel-import/tags"
+    ],
+    "exclude_spellcheck": [
+            {
+                "document_path": "hornbill-utilities/hornbill-clean-utility.md",
+                "words": [
+                    "organisation",
+                    "organisations",
+                    "cancelled"
+                        ]
+            }
+          ]
   }
 }

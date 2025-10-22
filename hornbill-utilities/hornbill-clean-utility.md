@@ -17,7 +17,7 @@ The Hornbill Cleaner Utility is provided open source under the [Hornbill Communi
 
 ## Configuration Overview
 The configuration of this utility is managed through a JSON file (conf.json), which is supplied with each release:
-
+```
         "CleanRequests": true,
         "RequestServices":[
                 1,
@@ -108,6 +108,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
                 "CS00354",
                 "CS00346"
         ],
+```
 
 ### Clean Requests
 * **CleanRequests** : Set to true to remove all Service Manager Requests (and related entity data) from a Hornbill instance. Filter the requests to be deleted using the following parameters.
@@ -312,7 +313,7 @@ set HTTPS_PROXY=username:password@HOST:PORT
 ### URLs to White List
 Occasionally on top of setting the HTTP_PROXY variable the following URLs need to be white listed to allow access out to our network
 
-https://files.hornbill.com/instances/INSTANCENAME/zoneinfo - Allows access to lookup your Instance API Endpoint
-https://files.hornbill.co/instances/INSTANCENAME/zoneinfo - Backup URL for when files.hornbill.com is unavailable
-https://eurapi.hornbill.com/INSTANCENAME/xmlmc/ - This is your Instance API Endpoint, eurapi can change so you should use the endpoint defined in the previous URL
+`https://files.hornbill.com/instances/INSTANCENAME/zoneinfo` - Allows access to lookup your Instance API Endpoint
+`https://files.hornbill.co/instances/INSTANCENAME/zoneinfo` - Backup URL for when files.hornbill.com is unavailable
+`https://eurapi.hornbill.com/INSTANCENAME/xmlmc/` - This is your Instance API Endpoint, eurapi can change so you should use the endpoint defined in the previous URL
 https://api.github.com/repos/hornbill/asset-rel-import/tags - Allows the utility to self-update. Optional
