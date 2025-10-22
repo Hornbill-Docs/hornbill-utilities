@@ -4,11 +4,11 @@
 The utility provides a quick and easy method of removing requests, assets or users from a specified Hornbill instance.
 
 :::warning
-This utility permanently deletes request, asset or user records from a specified Hornbill instance, and records of entities that are associated to the deleted requests/assets. It is primarily intended to be used only by an administrator of a Hornbill instance at the appropriate stage of the switch-on process, to remove demonstration and test data prior to go-live.
+This utility permanently deletes request, asset or user records from a specified Hornbill instance, and records of entities that are associated with the deleted requests/assets. It is primarily intended to be used only by an administrator of a Hornbill instance at the appropriate stage of the switch-on process, to remove demonstration and test data before go-live.
 :::
 
 ## Open Source
-The Hornbill Cleaner Utility is provided open source under the [Hornbill Community Licence](https://github.com/hornbill/goHornbillCleaner/blob/master/LICENSE.md) and can be found [Here](https://github.com/hornbill/goHornbillCleaner) on GitHub.
+The Hornbill Cleaner Utility is provided open source under the [Hornbill Community Licence](https://github.com/hornbill/goHornbillCleaner/blob/master/LICENSE.md) and can be found [here on GitHub](https://github.com/hornbill/goHornbillCleaner).
 
 ## Installation Overview
 ### Windows Installation
@@ -202,8 +202,8 @@ When you are ready to clear-down your request, asset or user records:
 1. Open **conf.json** and add in the necessary configuration.
 1. Open a terminal window.
     * Windows: Open a Command Line Prompt as Administrator.
-    *OSX or Linux: Open a Terminal.
-1. Change Directory to the folder containing the cleaner executable and configuration files E.g. `C:\hornbill_cleaner\` or `/Users/YourUserID/hornbillCleaner/`.
+    * OSX or Linux: Open a Terminal.
+1. Change Directory to the folder containing the cleaner executable and configuration files (E.g. `C:\hornbill_cleaner\` or `/Users/YourUserID/hornbillCleaner/`).
 1. Run the appropriate command:
     * Windows: ```hornbillCleaner.exe -instance=yourinstancename -apikey=yourapikey```
     * OSX or Linux Terminal: ```./hornbillCleaner -instance=yourinstancename -apikey=yourapikey```
