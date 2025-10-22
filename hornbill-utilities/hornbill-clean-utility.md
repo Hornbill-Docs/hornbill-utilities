@@ -46,12 +46,12 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 "CleanAssets": false,
 "AssetClassID": "",
 "AssetFilters": [
-                {
-                  "ColumnName": "h_name"
-                  "ColumnValue": "YourAssetName",
-                  "Operator": "Equals",
-                  "IsGeneralProperty": true
-                 }
+    {
+    "ColumnName": "h_name"
+    "ColumnValue": "YourAssetName",
+    "Operator": "Equals",
+    "IsGeneralProperty": true
+     }
 ],
 "CleanUsers": true,
 "Users":[
@@ -84,17 +84,17 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 ],
 "CleanEmails": false,
 "EmailFilters": {
-       "FolderIDs": [
-                        1,
-                        7,
-                        18
-                ],
-                "RecipientAddress": "",
-                "RecipientClass": "",
-                "ReceivedFrom": "2016-01-01 00:00:00",
-                "ReceivedTo": "2017-01-01 00:00:00",
-                "Subject": "%out of office%"
-        },
+    "FolderIDs": [
+        1,
+        7,
+        18
+        ],
+    "RecipientAddress": "",
+    "RecipientClass": "",
+    "ReceivedFrom": "2016-01-01 00:00:00",
+    "ReceivedTo": "2017-01-01 00:00:00",
+    "Subject": "%out of office%"
+},
 "CleanReports": true,
 "ReportIDs": [
                 1,
@@ -199,111 +199,116 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 ## Running the utility
 When you are ready to clear-down your request, asset or user records:
 
-Open conf.json and add in the necessary configuration;
-On Windows:
-Open a Command Line Prompt as Administrator;
-On OSX or Linux:
- Open a Terminal;
-Change Directory to the folder containing the cleaner executable and configuration files E.g. 'C:\hornbill_cleaner\' or '/Users/YourUserID/hornbillCleaner/';
-Run the appropriate command:
-Windows: hornbillCleaner.exe -instance=yourinstancename -apikey=yourapikey
-OSX or Linux Terminal: ./hornbillCleaner -instance=yourinstancename -apikey=yourapikey
+1. Open **conf.json** and add in the necessary configuration.
+1. Open a terminal window.
+    * Windows: Open a Command Line Prompt as Administrator.
+    *OSX or Linux: Open a Terminal.
+1. Change Directory to the folder containing the cleaner executable and configuration files E.g. `C:\hornbill_cleaner\` or `/Users/YourUserID/hornbillCleaner/`.
+1. Run the appropriate command:
+    * Windows: ```hornbillCleaner.exe -instance=yourinstancename -apikey=yourapikey```
+    * OSX or Linux Terminal: ```./hornbillCleaner -instance=yourinstancename -apikey=yourapikey```
 
-PLEASE NOTE:
-
-Follow all on-screen prompts, taking care to read all messages provided.
-If any errors are experienced, first review the Trouble Shooting section below. If you are unable to find the answer there, please seek further advice on the Hornbill Forums
+:::info
+* Follow all on-screen prompts, taking care to read all messages provided.
+* If any errors are experienced, first review the Trouble Shooting section below. If you are unable to find the answer there, please seek further advice on the Hornbill Forums.
+:::
 
 ## Post Utility Actions
 After the Hornbill Clean Utility has been run successfully, you can reset your request reference number or asset ID back to 0:
 
-Resetting Application Auto Values
+### Resetting Application Auto Values
 After the Hornbill Clean utility has been run successfully, you may like to reset the relevant application Auto Values such as the request reference number. This is not essential, more a personal preference.
 The Application Auto Values can be reset via Hornbill Administration > Home > System > Data > Auto Values.
 
-PLEASE NOTE: Only reset the auto values for the entities you have cleared down:
+:::important
+Only reset the auto values for the entities you have cleared down.
+:::
 
-itsmRequestsAutoId - this auto value is responsible for generating request reference numbers (only reset this if you have deleted all your requests).
-itsmAssetAutoId - this auto value generates the id for new asset records (only reset this if you have deleted all your asset records).
+* **itsmRequestsAutoId**. This auto value is responsible for generating request reference numbers (only reset this if you have deleted all your requests).
+* **itsmAssetAutoId**. This auto value generates the id for new asset records (only reset this if you have deleted all your asset records).
+
 Click the "Reset Counter" button to reset the Auto Value
 
 ## Command Line Parameters
--instance - This should be the ID of your instance
--apikey - This should be an API of a user on your instance that has the correct rights to perform the search & deletion of the specified records
--file - This is the name of the Configuration file to load. If this parameter is not specified, by default the utility will look for `conf.json'
--BlockSize x - Where x is the number of records that should be retrieved and deleted as "blocks". If this parameter is not specified, the default is 3, and under normal circumstances this should not need to be overridden.
--dryrun - Requires Service Manager build >= 1392 to work with request data. This boolean flag allows a "dry run" to be performed - the tool identifies the primary key for all parent records that would have been deleted, and outputs them to the log file without deleting any records. Defaults to false.
--justrun - This boolean flag allows you to skip the confirmation prompts when the tool is run. This allows the tool to be scheduled, with the correct configuration defined to delete request records over a certain age for example. Defaults to false.
+* **-instance** - This should be the ID of your instance
+* **-apikey** - This should be an API of a user on your instance that has the correct rights to perform the search & deletion of the specified records
+* **-file** - This is the name of the Configuration file to load. If this parameter is not specified, by default the utility will look for `conf.json'
+* **-BlockSize x** - Where x is the number of records that should be retrieved and deleted as "blocks". If this parameter is not specified, the default is 3, and under normal circumstances this should not need to be overridden.
+* **-dryrun** - Requires Service Manager build >= 1392 to work with request data. This boolean flag allows a "dry run" to be performed - the tool identifies the primary key for all parent records that would have been deleted, and outputs them to the log file without deleting any records. Defaults to false.
+* **-justrun** - This boolean flag allows you to skip the confirmation prompts when the tool is run. This allows the tool to be scheduled, with the correct configuration defined to delete request records over a certain age for example. Defaults to false.
 
 ## API Key Rules
-This utility uses (API keys):
+This utility uses ([API keys](/esp-config/integration/api-keys)):
 
-admin:getApplicationList
-admin:userDelete
-bpm:processCancel
-bpm:processDelete
-data:entityBrowseRecords2
-data:entityDeleteRecord
-data:entityGetRecord
-data:getRecordCount
-data:queryExec
-reporting:reportDelete
-system:logMessage
-task:taskCancel
-task:taskDelete
-time:timerDelete
-time:timerEventDelete
-apps/com.hornbill.boardmanager/Card:removeCard
-apps/com.hornbill.core/Task:getEntityTasks
+* admin:getApplicationList
+* admin:userDelete
+* bpm:processCancel
+* bpm:processDelete
+* data:entityBrowseRecords2
+* data:entityDeleteRecord
+* data:entityGetRecord
+* data:getRecordCount
+* data:queryExec
+* reporting:reportDelete
+* system:logMessage
+* task:taskCancel
+* task:taskDelete
+* time:timerDelete
+* time:timerEventDelete
+* apps/com.hornbill.boardmanager/Card:removeCard
+* apps/com.hornbill.core/Task:getEntityTasks
 
 ## Minimum permissions
 The account for which the API key is generated will need to be a: Full User with an "Admin" level Role.
 
 The minimum permissions necessary:
 
-sys.a.canCancelProcess
-sys.a.deleteTimer
-sys.a.deleteUser
-sys.a.executeStoredQuery
-sys.a.manageTimers
-sys.a.manageUsers
-sys.b.deleteTask
-sys.b.manageTasks
-sys.b.updateTask
-sys.c.manageBpm
-sys.d.getRecord
-sys.d.manageApplications
-sys.f.deleteReport
-sys.f.manageReports
-boardmanager.a.canAddTo
-boardmanager.b.boardPrivledgedUser
-servicemanager.h.searchEntityRecords
-If creating a Custom Role to include these permissions ensuring that the Privilege Level is set to Admin will meet the above requirements.
+* sys.a.canCancelProcess
+* sys.a.deleteTimer
+* sys.a.deleteUser
+* sys.a.executeStoredQuery
+* sys.a.manageTimers
+* sys.a.manageUsers
+* sys.b.deleteTask
+* sys.b.manageTasks
+* sys.b.updateTask
+* sys.c.manageBpm
+* sys.d.getRecord
+* sys.d.manageApplications
+* sys.f.deleteReport
+* sys.f.manageReports
+* boardmanager.a.canAddTo
+* boardmanager.b.boardPrivledgedUser
+* servicemanager.h.searchEntityRecords
+
+:::tip
+If creating a [Custom Role](/esp-config/organizational-data/roles#user-created-roles) to include these permissions, ensure that the [Privilege Level](/esp-config/organizational-data/roles#privileges) is set to **Admin**.
+:::
 
 ## Troubleshooting
 ### Logging Overview
-All logging output is saved to the Hornbill instance, in a log called Hornbill_Clean, and can be accessed from within the Hornbill Administration tool.
+All logging output is saved to the Hornbill instance, in a log called Hornbill_Clean. [Log files can be accessed in the Hornbill Platform Configuration](/esp-config/monitor/log-files).
 
 ### Common Error Messages
 Below are some common errors that you may encounter in the log file and what they mean:
 
-SQL Query was unsuccessful - this occurs when the utility is prevented from running the query to obtain the list of requests to delete. This happens when the system setting security.database.allowSqlQueryOperation is set to false (OFF). To successfully run the utility, this setting must be set to true (ON). It can be found in Hornbill Administration > System > Settings > Advanced, and filter on "security".
-Error Codes
-100 - Unable to create log File
-101 - Unable to create log folder
-102 - Unable to Load Configuration File
+* **SQL Query was unsuccessful**. This occurs when the utility is prevented from running the query to obtain the list of requests to delete. This happens when the system setting `security.database.allowSqlQueryOperation` is set to false (OFF). To successfully run the utility, this setting must be set to true (ON). It can be found under the [Platform Advanced System Settings](/esp-config/advanced-tools-and-settings/advanced-system-settings).
+
+#### Error Codes
+* 100 - Unable to create log File
+* 101 - Unable to create log folder
+* 102 - Unable to Load Configuration File
 
 ## HTTP Proxies
 If you use a proxy for all of your internet traffic, the HTTP_PROXY and HTTPS_PROXY Environment variables need to be set. These environment variables hold the hostname or IP address of your proxy server. It is a standard environment variable and like any such variable, the specific steps you use to set it depends on your operating system.
 
 For windows machines, it can be set from the command line using the following:
-set HTTP_PROXY=HOST:PORT
+* ```set HTTP_PROXY=HOST:PORT```
+* ```set HTTPS_PROXY=HOST:PORT```
 
-set HTTPS_PROXY=HOST:PORT
 Where "HOST" is the IP address or host name of your Proxy Server and "PORT" is the specific port number. IF you require a username and password to go through the proxy, the format for the setting is as follows:
-set HTTP_PROXY=username:password@HOST:PORT
-
-set HTTPS_PROXY=username:password@HOST:PORT
+* ```set HTTP_PROXY=username:password@HOST:PORT```
+* ```set HTTPS_PROXY=username:password@HOST:PORT```
 
 ### URLs to White List
 Occasionally on top of setting the HTTP_PROXY variable the following URLs need to be white listed to allow access out to our network

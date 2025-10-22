@@ -19,7 +19,16 @@
       },
       {
         "text": "Hornbill Clean Utility",
-        "link": "hornbill-utilities/hornbill-clean-utility"
+        "items":[
+          {
+          "text": "Configuration",
+          "link": "hornbill-utilities/hornbill-clean-utility"
+          },
+          {
+            "text":"Change Log",
+            "link":"hornbill-utilities/hornbill-clean-utility-change-log"
+          }
+        ]
       }
     ]
   },
