@@ -299,7 +299,7 @@ Below are some common errors that you may encounter in the log file and what the
 #### Error Codes
 * `100` - Unable to create log File
 * `101` - Unable to create log folder
-* 10`2 - Unable to Load Configuration File
+* `102` - Unable to Load Configuration File
 
 ## HTTP Proxies
 If you use a proxy for all of your internet traffic, the HTTP_PROXY and HTTPS_PROXY Environment variables need to be set. These environment variables hold the hostname or IP address of your proxy server. It is a standard environment variable and like any such variable, the specific steps you use to set it depends on your operating system.
