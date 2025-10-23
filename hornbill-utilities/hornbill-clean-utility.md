@@ -4,7 +4,7 @@
 The utility provides a quick and easy method of removing requests, assets or users from a specified Hornbill instance.
 
 :::warning
-This utility permanently deletes request, asset or user records from a specified Hornbill instance, and records of entities that are associated with the deleted requests/assets. It is primarily intended to be used only by an administrator of a Hornbill instance at the appropriate stage of the switch-on process, to remove demonstration and test data before go-live.
+This utility permanently deletes various record types from a specified Hornbill instance, and records of entities that are associated with the deleted parent records. It is primarily intended to be used only by an administrator of a Hornbill instance at the appropriate stage of the switch-on process, to remove demonstration and test data before go-live.
 :::
 
 ## Open Source
@@ -18,97 +18,99 @@ The Hornbill Cleaner Utility is provided open source under the [Hornbill Communi
 ## Configuration Overview
 The configuration of this utility is managed through a JSON file (conf.json), which is supplied with each release:
 
-```
-"CleanRequests":true,
-"RequestServices":[
-            1,
-            2,
-            3
-],
-"RequestStatuses":[
-   "status.open",
-   "status.cancelled",
-   "status.closed",
-   "status.resolved"
-],
-"RequestTypes":[
-    "Incident",
-    "Service Request"
-],
-"RequestLogDateFrom":"2016-01-01 00:00:00",
-"RequestLogDateTo":"-P1D2H3M4S",
-"RequestClosedDateFrom":"2016-01-01 00:00:00",
-"RequestClosedDateTo":"2018-01-01 00:00:00",
-"RequestReferences":[
-       "CHR00000021",
-       "INC00000003"
-],
-"CleanAssets": false,
-"AssetClassID": "",
-"AssetFilters": [
-    {
-    "ColumnName": "h_name"
-    "ColumnValue": "YourAssetName",
-    "Operator": "Equals",
-    "IsGeneralProperty": true
-     }
-],
-"CleanUsers": true,
-"Users":[
-          "UserIDOne",
-          "UserIDTwo"
-],
-"CleanServiceAvailabilityHistory": false,
-"ServiceAvailabilityServiceIDs": [],
-"CleanContacts": true,
-"ContactIDs": [
-                5,
-                8,
-                13,
-                21
-],
-"CleanOrganisations": true,
-"OrganisationIDs": [
-                34,
-                55
-],
-"CleanSuppliers": true,
-"SupplierIDs": [
-                89,
-                144
-],
-"CleanSupplierContracts": true,
-"SupplierContractIDs": [
-                "C20210700233",
-                "C20210700377",
-],
-"CleanEmails": false,
-"EmailFilters": {
-    "FolderIDs": [
+```json
+{
+    "CleanRequests":true,
+    "RequestServices":[
         1,
-        7,
-        18
-        ],
-    "RecipientAddress": "",
-    "RecipientClass": "",
-    "ReceivedFrom": "2016-01-01 00:00:00",
-    "ReceivedTo": "2017-01-01 00:00:00",
-    "Subject": "%out of office%"
-},
-"CleanReports": true,
-"ReportIDs": [
+        2,
+        3
+    ],
+    "RequestStatuses":[
+        "status.open",
+        "status.cancelled",
+        "status.closed",
+        "status.resolved"
+    ],
+    "RequestTypes":[
+        "Incident",
+        "Service Request"
+    ],
+    "RequestLogDateFrom":"2016-01-01 00:00:00",
+    "RequestLogDateTo":"-P1D2H3M4S",
+    "RequestClosedDateFrom":"2016-01-01 00:00:00",
+    "RequestClosedDateTo":"2018-01-01 00:00:00",
+    "RequestReferences":[
+        "CHR00000021",
+        "INC00000003"
+    ],
+    "CleanAssets": false,
+    "AssetClassID": "",
+    "AssetFilters": [
+        {
+            "ColumnName": "h_name",
+            "ColumnValue": "YourAssetName",
+            "Operator": "Equals",
+            "IsGeneralProperty": true
+        }
+    ],
+    "CleanUsers": true,
+    "Users":[
+        "UserIDOne",
+        "UserIDTwo"
+    ],
+    "CleanServiceAvailabilityHistory": false,
+    "ServiceAvailabilityServiceIDs": [],
+    "CleanContacts": true,
+    "ContactIDs": [
+        5,
+        8,
+        13,
+        21
+    ],
+    "CleanOrganisations": true,
+    "OrganisationIDs": [
+        34,
+        55
+    ],
+    "CleanSuppliers": true,
+    "SupplierIDs": [
+        89,
+        144
+    ],
+    "CleanSupplierContracts": true,
+    "SupplierContractIDs": [
+        "C20210700233",
+        "C20210700377"
+    ],
+    "CleanEmails": false,
+    "EmailFilters": {
+        "FolderIDs": [
                 1,
-                2,
-                3,
-                5,
-                8,
-                13
-],
-"CleanChatSessions": true,
-"ChatSessionIDs": [
-                "CS00354",
-                "CS00346"
-],
+                7,
+                18
+            ],
+        "RecipientAddress": "",
+        "RecipientClass": "",
+        "ReceivedFrom": "2016-01-01 00:00:00",
+        "ReceivedTo": "2017-01-01 00:00:00",
+        "Subject": "%out of office%"
+    },
+    "CleanReports": true,
+    "ReportIDs": [
+        1,
+        2,
+        3,
+        5,
+        8,
+        13
+    ],
+    "CleanChatSessions": true,
+    "ChatSessionIDs": [
+        "CS00354",
+        "CS00346"
+    ]
+}
 ```
 
 ### Clean Requests
@@ -144,23 +146,23 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 * **ColumnName** : The name of the column in the assets general or extended table;
 * **ColumnValue** : The value to filter by;
 * **Operator** : The operator to apply, can be one of:
-    * Empty - column is null or an empty string;
-    * Equals - column equals the provided value;
-    * NotEquals - column does not equal the provided value;
-    * Greater - column value is greater than the provided value;
-    * Less - column value is less than than the provided value;
-    * LastXDays - date columns, value in the last X days where X is provided in ColumnValue;
-    * LastMonth - date columns, value in the last month;
-    * PreviousMonth - date columns, value in the previous month;
-    * ThisMonth - date columns, value this month;
-    * LastWeek - date columns, value last week
-    * Yesterday - date columns, value yesterday;
-    * Today - date columns, value today;
-    * Before - date columns, value before the datetime value provided in ColumnValue;
-    * After - date columns, value after the datetime value provided in ColumnValue;
-    * BeforeXDays - date columns, before the number of days provided in ColumnValue;
-    * Regex - column matches the regular expression provided in ColumnValue;
-    * NotRegex - column doesn't match the regular expression provided in ColumnValue;
+    * `Empty` - column is null or an empty string;
+    * `Equals` - column equals the provided value;
+    * `NotEquals` - column does not equal the provided value;
+    * `Greater` - column value is greater than the provided value;
+    * `Less` - column value is less than than the provided value;
+    * `LastXDays` - date columns, value in the last X days where X is provided in ColumnValue;
+    * `LastMonth` - date columns, value in the last month;
+    * `PreviousMonth` - date columns, value in the previous month;
+    * `ThisMonth` - date columns, value this month;
+    * `LastWeek` - date columns, value last week
+    * `Yesterday` - date columns, value yesterday;
+    * `Today` - date columns, value today;
+    * `Before` - date columns, value before the datetime value provided in ColumnValue;
+    * `After` - date columns, value after the datetime value provided in ColumnValue;
+    * `BeforeXDays` - date columns, before the number of days provided in ColumnValue;
+    * `Regex` - column matches the regular expression provided in ColumnValue;
+    * `NotRegex` - column doesn't match the regular expression provided in ColumnValue;
 * **IsGeneralProperty** : If true, the column exists in the general assets table. If false, the column is in the extended assets table;
 
 ### Clean Users
@@ -238,48 +240,48 @@ Click the "Reset Counter" button to reset the Auto Value
 * **-justrun** - This boolean flag allows you to skip the confirmation prompts when the tool is run. This allows the tool to be scheduled, with the correct configuration defined to delete request records over a certain age for example. Defaults to false.
 
 ## API Key Rules
-This utility uses ([API keys](/esp-config/integration/api-keys)):
+This utility uses ([API keys](/esp-config/integration/api-keys)), and the API Key should be granted permission to call the following APIs to clean your instance data:
 
-* admin:getApplicationList
-* admin:userDelete
-* bpm:processCancel
-* bpm:processDelete
-* data:entityBrowseRecords2
-* data:entityDeleteRecord
-* data:entityGetRecord
-* data:getRecordCount
-* data:queryExec
-* reporting:reportDelete
-* system:logMessage
-* task:taskCancel
-* task:taskDelete
-* time:timerDelete
-* time:timerEventDelete
-* apps/com.hornbill.boardmanager/Card:removeCard
-* apps/com.hornbill.core/Task:getEntityTasks
+* `admin:getApplicationList`
+* `admin:userDelete`
+* `bpm:processCancel`
+* `bpm:processDelete`
+* `data:entityBrowseRecords2`
+* `data:entityDeleteRecord`
+* `data:entityGetRecord`
+* `data:getRecordCount`
+* `data:queryExec`
+* `reporting:reportDelete`
+* `system:logMessage`
+* `task:taskCancel`
+* `task:taskDelete`
+* `time:timerDelete`
+* `time:timerEventDelete`
+* `apps/com.hornbill.boardmanager/Card:removeCard`
+* `apps/com.hornbill.core/Task:getEntityTasks`
 
 ## Minimum permissions
 The account for which the API key is generated will need to be a: Full User with an "Admin" level Role.
 
 The minimum permissions necessary:
 
-* sys.a.canCancelProcess
-* sys.a.deleteTimer
-* sys.a.deleteUser
-* sys.a.executeStoredQuery
-* sys.a.manageTimers
-* sys.a.manageUsers
-* sys.b.deleteTask
-* sys.b.manageTasks
-* sys.b.updateTask
-* sys.c.manageBpm
-* sys.d.getRecord
-* sys.d.manageApplications
-* sys.f.deleteReport
-* sys.f.manageReports
-* boardmanager.a.canAddTo
-* boardmanager.b.boardPrivledgedUser
-* servicemanager.h.searchEntityRecords
+* `sys.a.canCancelProcess`
+* `sys.a.deleteTimer`
+* `sys.a.deleteUser`
+* `sys.a.executeStoredQuery`
+* `sys.a.manageTimers`
+* `sys.a.manageUsers`
+* `sys.b.deleteTask`
+* `sys.b.manageTasks`
+* `sys.b.updateTask`
+* `sys.c.manageBpm`
+* `sys.d.getRecord`
+* `sys.d.manageApplications`
+* `sys.f.deleteReport`
+* `sys.f.manageReports`
+* `boardmanager.a.canAddTo`
+* `boardmanager.b.boardPrivledgedUser`
+* `servicemanager.h.searchEntityRecords`
 
 :::tip
 If creating a [Custom Role](/esp-config/organizational-data/roles#user-created-roles) to include these permissions, ensure that the [Privilege Level](/esp-config/organizational-data/roles#privileges) is set to **Admin**.
@@ -295,25 +297,25 @@ Below are some common errors that you may encounter in the log file and what the
 * **SQL Query was unsuccessful**. This occurs when the utility is prevented from running the query to obtain the list of requests to delete. This happens when the system setting `security.database.allowSqlQueryOperation` is set to false (OFF). To successfully run the utility, this setting must be set to true (ON). It can be found under the [Platform Advanced System Settings](/esp-config/advanced-tools-and-settings/advanced-system-settings).
 
 #### Error Codes
-* 100 - Unable to create log File
-* 101 - Unable to create log folder
-* 102 - Unable to Load Configuration File
+* `100` - Unable to create log File
+* `101` - Unable to create log folder
+* 10`2 - Unable to Load Configuration File
 
 ## HTTP Proxies
 If you use a proxy for all of your internet traffic, the HTTP_PROXY and HTTPS_PROXY Environment variables need to be set. These environment variables hold the hostname or IP address of your proxy server. It is a standard environment variable and like any such variable, the specific steps you use to set it depends on your operating system.
 
 For windows machines, it can be set from the command line using the following:
-* ```set HTTP_PROXY=HOST:PORT```
-* ```set HTTPS_PROXY=HOST:PORT```
+* `set HTTP_PROXY=HOST:PORT`
+* `set HTTPS_PROXY=HOST:PORT`
 
 Where "HOST" is the IP address or host name of your Proxy Server and "PORT" is the specific port number. IF you require a username and password to go through the proxy, the format for the setting is as follows:
-* ```set HTTP_PROXY=username:password@HOST:PORT```
-* ```set HTTPS_PROXY=username:password@HOST:PORT```
+* `set HTTP_PROXY=username:password@HOST:PORT`
+* `set HTTPS_PROXY=username:password@HOST:PORT`
 
 ### URLs to White List
 Occasionally on top of setting the HTTP_PROXY variable the following URLs need to be white listed to allow access out to our network
 
-`https://files.hornbill.com/instances/INSTANCENAME/zoneinfo` - Allows access to lookup your Instance API Endpoint
-`https://files.hornbill.co/instances/INSTANCENAME/zoneinfo` - Backup URL for when files.hornbill.com is unavailable
-`https://eurapi.hornbill.com/INSTANCENAME/xmlmc/` - This is your Instance API Endpoint, eurapi can change so you should use the endpoint defined in the previous URL
-https://api.github.com/repos/hornbill/asset-rel-import/tags - Allows the utility to self-update. Optional
+* `https://files.hornbill.com/instances/INSTANCENAME/zoneinfo` - Allows access to lookup your Instance API Endpoint
+* `https://files.hornbill.co/instances/INSTANCENAME/zoneinfo` - Backup URL for when files.hornbill.com is unavailable
+* `https://mdh-p01-api.hornbill.com/INSTANCENAME/xmlmc/` - This is your Instance API Endpoint, where `mdh-p01-api` is specific to your region and instance. See the [API Concepts documentation](/esp-api-api/concepts#api-endpoint) for more information.
+* `https://api.github.com/repos/hornbill/asset-rel-import/tags`- Allows the utility to self-update. Optional
