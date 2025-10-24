@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "audience": [
     "public"
   ],
@@ -29,6 +29,10 @@
             "link":"hornbill-utilities/hornbill-clean-utility-change-log"
           }
         ]
+      },
+      {
+        "text": "Power BI Reporting",
+        "link": "hornbill-utilities/power-bi-reporting"
       }
     ]
   },
