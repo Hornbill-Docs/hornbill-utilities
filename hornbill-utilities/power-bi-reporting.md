@@ -1,5 +1,7 @@
 # Power BI Reporting
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_xybLWgm5A8?si=_WHOJUxMv5idRIgF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Using Python 3
 Using [Python 3](https://www.python.org/), and the Hornbill reporting and trend engines as data sources in Power BI.
 
@@ -78,6 +80,8 @@ Using [R Scripts](https://cran.r-project.org/), and the Hornbill reporting and t
 
 ### Overview
 A number of example R scripts have been provided to enable Power BI administrators to use the Hornbill Reporting and Trending Engine APIs as Data Sources within Power BI reports and dashboards.
+
+![R Script](/_books/hornbill-utilities/images/power-bi-r-script.png)
 
 The scripts can be found on our public [Github Repository]https://github.com/hornbill/rPowerBIHornbillDataSources.
 
