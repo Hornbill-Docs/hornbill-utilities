@@ -6,7 +6,7 @@
   },
   "validation": {
     "exclude_links": [
-       "https://api.github.com/repos/hornbill/asset-rel-import/tags"
+       "https://api.github.com/repos/hornbill/*"
     ],
     "exclude_spellcheck": [
             {

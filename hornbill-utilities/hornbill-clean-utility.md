@@ -239,26 +239,27 @@ Click the "Reset Counter" button to reset the Auto Value
 * **-dryrun** - Requires Service Manager build >= 1392 to work with request data. This boolean flag allows a "dry run" to be performed - the tool identifies the primary key for all parent records that would have been deleted, and outputs them to the log file without deleting any records. Defaults to false.
 * **-justrun** - This boolean flag allows you to skip the confirmation prompts when the tool is run. This allows the tool to be scheduled, with the correct configuration defined to delete request records over a certain age for example. Defaults to false.
 
-## API Key Rules
-This utility uses ([API keys](/esp-config/integration/api-keys)), and the API Key should be granted permission to call the following APIs to clean your instance data:
+[[INCLUDE /hornbill-utilities/_includes/api-key-rules.md]]
 
-* `admin:getApplicationList`
-* `admin:userDelete`
-* `bpm:processCancel`
-* `bpm:processDelete`
-* `data:entityBrowseRecords2`
-* `data:entityDeleteRecord`
-* `data:entityGetRecord`
-* `data:getRecordCount`
-* `data:queryExec`
-* `reporting:reportDelete`
-* `system:logMessage`
-* `task:taskCancel`
-* `task:taskDelete`
-* `time:timerDelete`
-* `time:timerEventDelete`
-* `apps/com.hornbill.boardmanager/Card:removeCard`
-* `apps/com.hornbill.core/Task:getEntityTasks`
+```cmd
+admin:getApplicationList
+admin:userDelete
+bpm:processCancel
+bpm:processDelete
+data:entityBrowseRecords2
+data:entityDeleteRecord
+data:entityGetRecord
+data:getRecordCount
+data:queryExec
+reporting:reportDelete
+system:logMessage
+task:taskCancel
+task:taskDelete
+time:timerDelete
+time:timerEventDelete
+apps/com.hornbill.boardmanager/Card:removeCard
+apps/com.hornbill.core/Task:getEntityTasks
+```
 
 ## Minimum permissions
 The account for which the API key is generated will need to be a: Full User with an "Admin" level Role.
@@ -301,21 +302,4 @@ Below are some common errors that you may encounter in the log file and what the
 * `101` - Unable to create log folder
 * `102` - Unable to Load Configuration File
 
-## HTTP Proxies
-If you use a proxy for all of your internet traffic, the HTTP_PROXY and HTTPS_PROXY Environment variables need to be set. These environment variables hold the hostname or IP address of your proxy server. It is a standard environment variable and like any such variable, the specific steps you use to set it depends on your operating system.
-
-For windows machines, it can be set from the command line using the following:
-* `set HTTP_PROXY=HOST:PORT`
-* `set HTTPS_PROXY=HOST:PORT`
-
-Where "HOST" is the IP address or host name of your Proxy Server and "PORT" is the specific port number. IF you require a username and password to go through the proxy, the format for the setting is as follows:
-* `set HTTP_PROXY=username:password@HOST:PORT`
-* `set HTTPS_PROXY=username:password@HOST:PORT`
-
-### URLs to White List
-Occasionally on top of setting the HTTP_PROXY variable the following URLs need to be white listed to allow access out to our network
-
-* `https://files.hornbill.com/instances/INSTANCENAME/zoneinfo` - Allows access to lookup your Instance API Endpoint
-* `https://files.hornbill.co/instances/INSTANCENAME/zoneinfo` - Backup URL for when files.hornbill.com is unavailable
-* `https://mdh-p01-api.hornbill.com/INSTANCENAME/xmlmc/` - This is your Instance API Endpoint, where `mdh-p01-api` is specific to your region and instance. See the [API Concepts documentation](/esp-api-api/concepts#api-endpoint) for more information.
-* `https://api.github.com/repos/hornbill/asset-rel-import/tags`- Allows the utility to self-update. Optional
+[[INCLUDE /hornbill-utilities/_includes/network.md]]

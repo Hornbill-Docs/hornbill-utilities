@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "audience": [
     "public"
   ],
@@ -19,20 +19,45 @@
       },
       {
         "text": "Hornbill Clean Utility",
-        "items":[
+        "items": [
           {
-          "text": "Configuration",
-          "link": "hornbill-utilities/hornbill-clean-utility"
+            "text": "Configuration",
+            "link": "hornbill-utilities/hornbill-clean-utility"
           },
           {
-            "text":"Change Log",
-            "link":"hornbill-utilities/hornbill-clean-utility-change-log"
+            "text": "Change Log",
+            "link": "hornbill-utilities/hornbill-clean-utility-change-log"
           }
         ]
       },
       {
         "text": "Power BI Reporting",
         "link": "hornbill-utilities/power-bi-reporting"
+      },
+      {
+        "text": "Contact Registration Processor",
+        "link": "hornbill-utilities/contact-registration"
+      },
+      {
+        "text": "User Role Removal",
+        "link": "hornbill-utilities/user-role-removal"
+      },
+      {
+        "text": "Task Canceller",
+        "link": "hornbill-utilities/task-canceller"
+      },
+      {
+        "text": "Archivers",
+        "items": [
+          {
+            "text": "Email Archiver",
+            "link": "hornbill-utilities/email-archiver"
+          },
+          {
+            "text": "Request Attachment Archiver",
+            "link": "hornbill-utilities/request-attachment-archiver"
+          }
+        ]
       }
     ]
   },
