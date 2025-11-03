@@ -259,6 +259,7 @@ time:timerDelete
 time:timerEventDelete
 apps/com.hornbill.boardmanager/Card:removeCard
 apps/com.hornbill.core/Task:getEntityTasks
+apps/com.hornbill.livechat/ChatSessions:getChatSessions
 ```
 
 ## Minimum permissions
