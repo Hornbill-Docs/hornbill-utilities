@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "audience": [
     "public"
   ],
@@ -16,6 +16,10 @@
       {
         "text": "Introduction",
         "link": "hornbill-utilities/index"
+      },
+      {
+        "text": "API Schdululer",
+        "link": "hornbill-utilities/api-scheduler"
       },
       {
         "text": "Hornbill Clean Utility",
