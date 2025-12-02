@@ -1,4 +1,4 @@
-# API Schdululer
+# API Scheduler
 The utility provides a quick and easy way to schedule the running of Hornbill API’s. The API scheduler utility is an .exe that is downloaded and located on a machine of your choice. The configuration is stored in a conf.json file (edited using a text editor) and is located in the same directory as the executable. The utility is run via the command prompt.
 
 The tool connects to your Hornbill instance in the cloud over HTTPS/SSL. As long as you have standard internet access, then you should be able to use this tool without the need to make any firewall configuration changes.
