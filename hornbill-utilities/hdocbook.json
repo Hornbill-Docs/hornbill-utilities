@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "audience": [
     "public"
   ],
@@ -35,12 +35,20 @@
         ]
       },
       {
+        "text": "Hornbill Data Export",
+        "link": "hornbill-utilities/data-export"
+      },
+      {
         "text": "Power BI Reporting",
         "link": "hornbill-utilities/power-bi-reporting"
       },
       {
         "text": "Contact Registration Processor",
         "link": "hornbill-utilities/contact-registration"
+      },
+      {
+        "text": "Service Translation Tool",
+        "link": "hornbill-utilities/service-translation"
       },
       {
         "text": "Task Canceller",
@@ -58,6 +66,10 @@
             "link": "hornbill-utilities/request-attachment-archiver"
           }
         ]
+      },
+      {
+        "text": "Service Translation Tool",
+        "link": "hornbill-utilities/service-translation"
       }
     ]
   },
