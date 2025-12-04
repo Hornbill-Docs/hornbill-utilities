@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "audience": [
     "public"
   ],
@@ -66,10 +66,6 @@
             "link": "hornbill-utilities/request-attachment-archiver"
           }
         ]
-      },
-      {
-        "text": "Service Translation Tool",
-        "link": "hornbill-utilities/service-translation"
       }
     ]
   },
