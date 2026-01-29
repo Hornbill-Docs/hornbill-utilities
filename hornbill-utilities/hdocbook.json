@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "audience": [
     "public"
   ],
@@ -57,6 +57,10 @@
       {
         "text": "Google Forms",
         "link": "hornbill-utilities/google-forms"
+      },
+      {
+        "text": "Teams Power Virtual Agent",
+        "link": "hornbill-utilities/teams-power-virtual-agent"
       },
       {
         "text": "Archivers",
