@@ -54,6 +54,8 @@ A demonstration configuration file is provided within the package. If a configur
 		""
 	]
 	, "AttachmentFolder": "C:/Temp/"
+	, "Services": []
+	, "Statuses": []
 }
 ```
 
@@ -62,6 +64,8 @@ A demonstration configuration file is provided within the package. If a configur
 - `APIKeys` - an array of API Keys. Hornbill API key for a user account with the correct permissions to carry out all of the required API calls. Details on how to create an API key can be found below.
 - `AttachmentFolder` - The location where the files are going to be archived.
   - The format of the .zip file will be REQUESTID_2015-11-06T14-26-13Z.zip - each attachment that was found for that request will appear in the .zip file.
+- `Services` - Services-Array of integers (Service IDs). **Please Note:** that IF one decides to use this, that NOT giving ANY Service IDs will (still) result in ALL applicable requests. In other words, if one decides to single out a single service for different timings, then you will likely be using a second configuration file listing ALL the OTHER services.
+- `Statuses` - Statuses-Array of strings within configuration file (eg: ["status.cancelled","status.closed"] to only syphon off from cancelled/closed requests). **Please Note:** NOT giving ANY Statuses will (still) result in ALL applicable requests.
 
 ### Command Line Parameters
 
@@ -71,6 +75,7 @@ A demonstration configuration file is provided within the package. If a configur
 - *cutoff* - Defaults to `12`. Set the cut off date in weeks (12 or greater) - requests which haven't been touched for longer than this amount of time will be picked up.
 - *pagesize* - Defaults to `100` - Default Query Size (how many results per page).
 - *call* - IF a specific Request ID is given, then that request will be archived.
+- *requestList* - provide file name of file containing list of Request IDs - one per line
 - *DoNotArchiveFiles* - Set this to true to and the files will NOT be archived, BUT the files WILL be removed (if not dryrun)
 - *updateRequest* - Set this to true to update the request with the timeline entry of siphoned off files (Team Visibility). The additional **API Key Rule** required: `apps/com.hornbill.servicemanager/Requests:updateReqTimeline`
 
