@@ -65,7 +65,7 @@ A demonstration configuration file is provided within the package. If a configur
 - `AttachmentFolder` - The location where the files are going to be archived.
   - The format of the .zip file will be REQUESTID_2015-11-06T14-26-13Z.zip - each attachment that was found for that request will appear in the .zip file.
 - `Services` - Services-Array of integers (Service IDs). **Please Note:** that IF one decides to use this, that NOT giving ANY Service IDs will (still) result in ALL applicable requests. In other words, if one decides to single out a single service for different timings, then you will likely be using a second configuration file listing ALL the OTHER services.
-- `Statuses` - Statuses-Array of strings within configuration file (eg: ["status.cancelled","status.closed"] to only syphon off from cancelled/closed requests). **Please Note:** NOT giving ANY Statuses will (still) result in ALL applicable requests.
+- `Statuses` - Statuses-Array of strings within configuration file (eg: ["status.cancelled","status.closed"] to only siphon off from canceled/closed requests). **Please Note:** NOT giving ANY Statuses will (still) result in ALL applicable requests.
 
 ### Command Line Parameters
 

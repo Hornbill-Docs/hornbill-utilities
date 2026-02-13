@@ -16,7 +16,14 @@
                     "organisation",
                     "organisations"
                 ]
+            },
+			{
+                "document_path": "hornbill-utilities/request-attachment-archiver",
+                "words": [
+                    "cancelled"
+                ]
             }
+
           ]
   }
 }
