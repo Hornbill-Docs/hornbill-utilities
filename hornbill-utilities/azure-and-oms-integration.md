@@ -91,7 +91,7 @@ We’re provided a number of example Powershell Runbooks to allow your Azure Aut
 * Click in to each Hornbill Runbook that you want to install in turn, and click the `Import` button
 * The Runbook will then be available for use/edit/publishing in your list of Automation Runbooks
 
-* Download the relevant Runbook Powershell scripts from the [PowerShell Gallery]https://www.powershellgallery.com/packages?q=hornbill, and place on your local machine
+* Download the relevant Runbook Powershell scripts from the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=hornbill), and place on your local machine
 * Open Microsoft Azure in your browser and navigate to your Automation Account
 * Click on `Runbooks` under `Process Automation`
 * Click the `Add a runbook` button
