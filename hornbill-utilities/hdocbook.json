@@ -4,7 +4,7 @@
   "description": "Documentation for Hornbill's advanced utilities",
   "publicSource": "https://github.com/Hornbill-Docs/hornbill-utilities",
   "productFamily": "hdocs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "audience": [
     "public"
   ],
@@ -23,16 +23,7 @@
       },
       {
         "text": "Hornbill Clean Utility",
-        "items": [
-          {
-            "text": "Configuration",
-            "link": "hornbill-utilities/hornbill-clean-utility"
-          },
-          {
-            "text": "Change Log",
-            "link": "hornbill-utilities/hornbill-clean-utility-change-log"
-          }
-        ]
+        "link": "hornbill-utilities/hornbill-clean-utility"
       },
       {
         "text": "Hornbill Data Export",

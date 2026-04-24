@@ -168,35 +168,57 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 ### Clean Users
 * **CleanUsers** : Set to true to remove all Users listed in the Users array
 * **Users** : Array of strings, contains a list of User IDs to remove from your Hornbill instance
-    * CleanServiceAvailabilityHistory - Set to true to remove the Service Availability History records for all services listed in the ServiceAvailabilityServiceIDs array
+
+### Clean Service Availability
+* **CleanServiceAvailabilityHistory** - Set to true to remove the Service Availability History records for all services listed in the ServiceAvailabilityServiceIDs array
 * **ServiceAvailabilityServiceIDs** : Array of integers, contains a list of all Service IDs whose Availability Historty records should be deleted
-    * CleanContacts - Set to true to remove the Contacts listed in the ContactIDs array
+
+### Clean Contacts
+* **CleanContacts** - Set to true to remove the Contacts listed in the ContactIDs array
 * **ContactIDs** : Array of integers, contains a list of all Contact IDs that should be deleted
-    * CleanOrganisations - Set to true to remove the Organisations listed in the OrganisationIDs array
+
+### Clean Organisations
+* **CleanOrganisations** - Set to true to remove the Organisations listed in the OrganisationIDs array
 * **OrganisationIDs** : Array of integers, contains a list of all Organisation IDs that should be deleted
-    * CleanSuppliers - Set to true to remove the Suppliers listed in the SupplierIDs array, and all associated records
+
+### Clean Suppliers
+* **CleanSuppliers** - Set to true to remove the Suppliers listed in the SupplierIDs array, and all associated records
 * **SupplierIDs** : Array of integers, contains a list of all Supplier IDs that should be deleted
-    * CleanSupplierContracts - Set to true to remove the Supplier Contracts listed in the SupplierContractIDs array, and all associated records
+
+### Clean Supplier Contracts
+* **CleanSupplierContracts** - Set to true to remove the Supplier Contracts listed in the SupplierContractIDs array, and all associated records
 * **SupplierContractIDs** : Array of strings, contains a list of all Supplier Contact IDs that should be deleted
-    * CleanEmails - Set to true to remove any email records that match the supplied filters
-        * EmailFilters - The list of conditions to filter the email records for deletion by:
-            * FolderIDs - MANDATORY - Array of integers, to contain a list of Folder IDs to filter the email records by
-            * RecipientAddress - Deletes emails from this recipient email address
-            * RecipientClass - Deletes emails from this recipient email class. Can be one of:
-                * unknown
-                * to
-                * cc
-                * bcc
-                * from
-                * replyTo
-                * returnReceiptTo
-            * ReceivedFrom - Date/time field, delete all emails with a date/time stamp greater than or equal to this value
-            * ReceivedTo - Date/time field, delete all emails with a date/time stamp less than or equal to this value
-            * Subject - Filter emails by this subject. Supports % wildcard characters
+
+### Clean Emails
+* **CleanEmails** - Set to true to remove any email records that match the supplied filters
+* **EmailFilters** - The list of conditions to filter the email records for deletion by:
+    * **FolderIDs** - MANDATORY - Array of integers, to contain a list of Folder IDs to filter the email records by
+    * **RecipientAddress** - Deletes emails from this recipient email address
+    * **RecipientClass** - Deletes emails from this recipient email class. Can be one of:
+        * `unknown`
+        * `to`
+        * `cc`
+        * `bcc`
+        * `from`
+        * `replyTo`
+        * `returnReceiptTo`
+    * **ReceivedFrom** - Date/time field, delete all emails with a date/time stamp greater than or equal to this value. Can take one of the following values:
+        * An empty string will remove the `ReceivedFrom` filter.
+        * A date string in the format YYYY-MM-DD HH:MM:SS.
+        * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * **ReceivedTo** - Date/time field, delete all emails with a date/time stamp less than or equal to this value. Can take one of the following values:
+        * An empty string will remove the `ReceivedTo` filter.
+        * A date string in the format YYYY-MM-DD HH:MM:SS.
+        * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * **Subject** - Filter emails by this subject. Supports % wildcard characters
+
+### Clean Reports
 * **CleanReports** : Set to true to delete any reports, as defined in ReportsIDs below:
-    * ReportsIDs - Array of integers, contains a list of all Report IDs that you would like to delete.
+    * **ReportsIDs** - Array of integers, contains a list of all Report IDs that you would like to delete.
+
+### Clean Chat Sessions
 * **CleanChatSessions** : Set to true to delete chat sessions from the target instance.
-    * ChatSessionIDs - Array of strings - a list of chat session IDs to delete. If no chat session IDs are provided, then ALL chat sessions will be deleted.
+    * **ChatSessionIDs** - Array of strings - a list of chat session IDs to delete. If no chat session IDs are provided, then ALL chat sessions will be deleted.
 
 ## Running the utility
 When you are ready to clear-down your requests, assets, or user records:
