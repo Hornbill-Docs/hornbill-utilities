@@ -148,7 +148,7 @@ Allows users to see the status of and the latest customer-facing update of one o
 Allows the user to add an update to the request timeline should they so wish.
 
 ### Search Knowledgebase
-Allows users to provide a search string, that we then use to search FAQs that available to them, returning the top 5 results.
+Allows users to provide a search string, that we then use to search FAQs that are available to them, returning the top 5 results.
 
 ### New Starter
 A topic that is provided as an example of how New Starter requests could be raised in a conversational manner.
@@ -251,7 +251,7 @@ The Service ID can be found in the URL bar when looking at the Service's details
 The Catalog ID can be found by hovering over the Catalog Item Name within the Request Type's Catalog Items section (within the Service details in the Service Portfolio)
 
 #### What is in the github package?
-The github package contains a PowerShell script and a vanilla PVA. Your Teams Administrator can run this and provide the script with some Serive Manager details (API key, field containin UPN, Service ID & Catalog IDs). This exercise creates a package which your Teams Administrator can then import into the PowerApps backend.
+The github package contains a PowerShell script and a vanilla PVA. Your Teams Administrator can run this and provide the script with some Service Manager details (API key, field containin UPN, Service ID & Catalog IDs). This exercise creates a package which your Teams Administrator can then import into the PowerApps backend.
 
 The package will enable your user to search the FAQs, request the status of their calls and update their calls.
 
@@ -266,7 +266,7 @@ The samples provide some rudimentary data gathering and pushes that into custom 
 #### Can we have link from the Hornbill portal to the chatbot?
 Provided Teams allows for deeplinking to a particular PowerApp, then it should be possible as one is able to set up links on the Hornbill portal. Your Teams administrator can assist with this.
 
-#### Can more functionalirty be added?
+#### Can more functionality be added?
 * What if I want to capture more data for a new starter?
 * What happens to the chat history? Can it be included?
 * Can a user raise a request on behalf of another eg for new starters or leavers?

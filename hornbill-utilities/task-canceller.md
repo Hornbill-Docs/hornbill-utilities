@@ -54,4 +54,4 @@ No logging apart from a summary at the end and errors/issues will be reflected i
 
 ## Extras
 
-Bundled with the app is a file **open-tasks-on-cancelled-requests.report.txt** which is a Service Manager report export which can be imported to identify orphaned tasks (i.e. live tasks which which identifies all Task IDs of tasks which are not completed/canceled to canceled requests). 
+Bundled with the app is a file **open-tasks-on-cancelled-requests.report.txt** which is a Service Manager report export which can be imported to identify orphaned tasks (i.e. live tasks which identifies all Task IDs of tasks which are not completed/canceled to canceled requests). 

@@ -31,7 +31,7 @@ The utility can be downloaded from [GitHub](https://github.com/hornbill/process-
 
 ### Host
 
-The program that performs the import is fairly lightweight and doesn’t require much in the way of hardware to run. It can be run on virtualized or physical hardware running any version of Windows currently supported by Microsoft, but basic guidelines are as follows:
+The program that performs the import is fairly lightweight and doesnï¿½t require much in the way of hardware to run. It can be run on virtualized or physical hardware running any version of Windows currently supported by Microsoft, but basic guidelines are as follows:
 
 - Operating System - Microsoft Windows, 32 or 64-bit, current/LTS, desktop/server
 - CPU - Intel-compatible, one or more cores
@@ -114,7 +114,7 @@ Example JSON File:
 
 - *file* - Defaults to `conf.json` - Name of the Configuration file to load
 - *dryrun* - Defaults to `false` - Set to True and there won't be any changes to the contacts. The log file WILL contain what the utility would have done, this is to aid in debugging the initial connection information.
-- *debug* - Defailts to `false` - set to true to increase debug logging output
+- *debug* - Defaults to `false` - set to true to increase debug logging output
 - *concurrent* - defaults to `1`. This is to specify the number of requests that should be imported concurrently, and can be an integer between 1 and 10 (inclusive). 1 is the slowest level of import, but does not affect performance of your Hornbill instance, and 10 will process the import much more quickly but could affect performance.
 - *version* - shows version of tool (and ends)
 - *logprefix* - Add prefix to log file

@@ -1,5 +1,5 @@
 # Service Translation Tool
-The utility provides a simple, safe and secure way to bulk-translate your Services, and associated Catalog Items, FAQs, Bulletin, Customer Feedback Questions and Sub Statuses. Translation of Sub Statuses requires Service Manger build of 2144 or above.
+The utility provides a simple, safe and secure way to bulk-translate your Services, and associated Catalog Items, FAQs, Bulletins, Customer Feedback Questions and Sub Statuses. Translation of Sub Statuses requires Service Manager build of 2144 or above.
 
 The tool is designed to run behind your corporate firewall and connects to your Hornbill instance in the cloud over HTTPS/SSL. So as long as you have standard internet access then you should be able to use the tool without the need to make any firewall configuration changes.
 

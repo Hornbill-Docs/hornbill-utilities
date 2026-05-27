@@ -8,7 +8,7 @@ This tool does two things:
 - remove links to those attachments from the Hornbill instance
 
 :::info
-**Important:** One of the optimizations within the Hornbill platform is that the same file (e.g. an image in a email footer) is only stored once. There is a counter which keeps track of how many times that file is used/referenced (within Service Manager). Only once the counter is zero (i.e. there is no request referencing that attachment), is the actual file removed. The "removal" in this utility only reduces the counter by one - if that happens to make the reference number zero, then it will have the subsequent effect of actual file removal. Within the affected requests, you WILL still see a reference to the file inteh "Attachments"-section (i.e. so you still have an overview of the files attached), BUT a download attempt will fail. At that point, you will need to refer to the backed up/archived .zip file - which is easily identified by the call reference.
+**Important:** One of the optimizations within the Hornbill platform is that the same file (e.g. an image in a email footer) is only stored once. There is a counter which keeps track of how many times that file is used/referenced (within Service Manager). Only once the counter is zero (i.e. there is no request referencing that attachment), is the actual file removed. The "removal" in this utility only reduces the counter by one - if that happens to make the reference number zero, then it will have the subsequent effect of actual file removal. Within the affected requests, you WILL still see a reference to the file in the "Attachments"-section (i.e. so you still have an overview of the files attached), BUT a download attempt will fail. At that point, you will need to refer to the backed up/archived .zip file - which is easily identified by the call reference.
 :::
 
 
@@ -98,7 +98,7 @@ This output can also be found in the log files which should be examined to under
 
 It is recommended that you process this in a few steps.
 
-For instance if you have 5 years (260 weeks) of accumulated requests, and wish to only remove the attachments of requests which have not been of updated for longer than a year (52 weeks):
+For instance if you have 5 years (260 weeks) of accumulated requests, and wish to only remove the attachments of requests which have not been updated for longer than a year (52 weeks):
 
 Instead of running the script with a cutoff of 52 (which you would do regularly AFTER this first exercise), run the script with a **cutoff** of *250*, and then reducing in **manageable** steps until you get to the 52 weeks *(eg: 225, 200, ..., 52)*
 :::

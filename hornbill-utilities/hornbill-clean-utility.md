@@ -141,7 +141,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 
 ### Clean Assets
 * **CleanAssets** : Set to true to remove all Assets (and related entity data) from a Hornbill instance
-* **AssetClassID** : Filter assets for deletetion by a single asset class ID (basic, computer, computerPeripheral, mobileDevice, printer, software, telecoms)
+* **AssetClassID** : Filter assets for deletion by a single asset class ID (basic, computer, computerPeripheral, mobileDevice, printer, software, telecoms)
 * **AssetFilters** : Array of filters to apply to the query when returning assets to delete. Each object in the array should contain:
 * **ColumnName** : The name of the column in the assets general or extended table;
 * **ColumnValue** : The value to filter by;
@@ -171,7 +171,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 
 ### Clean Service Availability
 * **CleanServiceAvailabilityHistory** - Set to true to remove the Service Availability History records for all services listed in the ServiceAvailabilityServiceIDs array
-* **ServiceAvailabilityServiceIDs** : Array of integers, contains a list of all Service IDs whose Availability Historty records should be deleted
+* **ServiceAvailabilityServiceIDs** : Array of integers, contains a list of all Service IDs whose Availability History records should be deleted
 
 ### Clean Contacts
 * **CleanContacts** - Set to true to remove the Contacts listed in the ContactIDs array
@@ -255,7 +255,7 @@ Click the "Reset Counter" button to reset the Auto Value
 
 ## Command Line Parameters
 * **-instance** - This should be the ID of your instance
-* **-apikey** - This should be an API of a user on your instance that has the correct rights to perform the search & deletion of the specified records
+* **-apikey** - This should be an API key for a user on your instance that has the correct rights to perform the search & deletion of the specified records
 * **-file** - This is the name of the Configuration file to load. If this parameter is not specified, by default the utility will look for `conf.json'
 * **-BlockSize x** - Where x is the number of records that should be retrieved and deleted as "blocks". If this parameter is not specified, the default is 3, and under normal circumstances this should not need to be overridden.
 * **-dryrun** - Requires Service Manager build >= 1392 to work with request data. This boolean flag allows a "dry run" to be performed - the tool identifies the primary key for all parent records that would have been deleted, and outputs them to the log file without deleting any records. Defaults to false.

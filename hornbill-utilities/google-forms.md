@@ -54,7 +54,7 @@ This section will take you through taking the provided [example script](https://
 
 ### Authentication
 
-At the top of the script there are 2 key lines that needed editing.
+At the top of the script there are 2 key lines that need editing.
 
 ![Google Forms Authentication](/_books/hornbill-utilities/images/google-forms-authentication.png)
 
@@ -102,7 +102,7 @@ Triggers are created to specify what happens when someone finishes and submits a
 1. On the left vertical menu bar, click on the clock, which will open the Triggers page.
 2. Click on + Add Trigger (bottom right).
 3. Under the option _Choose which function to run, make sure that *OnSubmit* is selected.
-4. Unser *Select Event Type*, make sure that _On form submit_ is selected.
+4. Under *Select Event Type*, make sure that _On form submit_ is selected.
 5. Click _Save_.
 6. You may be presented with a dialog box asking you to select your Google account.
 7. You may be presented with a warning message saying that Google hasn’t verified this app. Click *Advanced*, and then at the bottom select _Go to project (unsafe)_.

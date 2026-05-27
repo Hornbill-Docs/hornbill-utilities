@@ -83,7 +83,7 @@ A number of example R scripts have been provided to enable Power BI administrato
 
 ![R Script](/_books/hornbill-utilities/images/power-bi-r-script.png)
 
-The scripts can be found on our public [Github Repository]https://github.com/hornbill/rPowerBIHornbillDataSources.
+The scripts can be found on our public [Github Repository](https://github.com/hornbill/rPowerBIHornbillDataSources).
 
 ### Dependencies
 The scripts have been written in R, and were tested using the following:

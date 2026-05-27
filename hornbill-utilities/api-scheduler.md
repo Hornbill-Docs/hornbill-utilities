@@ -83,7 +83,7 @@ Example JSON File:
         :::
     * ***ScheduleFrom***. An RFC3339 formatted time string, to specify the date & time to start running any instances of the particular schedule entry. This can contain an empty string to allow you to not specify a date/time to start the schedule from.
     * ***ScheduleTo***. An RFC3339 formatted time string, to specify the date & time to stop running any more instances of the particular schedule entry. This can contain an empty string, should you wish the schedule to run indefinitely
-    * ***Service***. The Hornbill Service that contains the API you wish to running
+    * ***Service***. The Hornbill Service that contains the API you wish to run
     * ***API***. The name of the API to run.
     * ***APIParams***. A JSON object, containing one or more other JSON objects, allowing you to specify the Order that the parameter should be presented to the API, the parameter type, the parameter ID and the content to write:
         * *Type*. Can be set to:

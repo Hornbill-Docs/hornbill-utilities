@@ -56,7 +56,7 @@ Example JSON File:
    * **Authentication** \- The type of authentication to use to connect to the SQL server, if the Driver is set to **mssql**. Can be either:  
         * **Windows** \- Windows Account authentication, uses the logged-in Windows account to authenticate  
         * **SQL** \- uses SQL Server authentication, and requires the Username and Password parameters (inside Keysafe) to be populated  
-   * **Encrypt** \- Boolean value to specify wether the connection between the script and the database should be encrypted. _NOTE_: There is a bug in SQL Server 2008 and below that causes the connection to fail if the connection is encrypted. Only set this to true if your SQL Server has been patched accordingly.
+   * **Encrypt** \- Boolean value to specify whether the connection between the script and the database should be encrypted. _NOTE_: There is a bug in SQL Server 2008 and below that causes the connection to fail if the connection is encrypted. Only set this to true if your SQL Server has been patched accordingly.
 * **Reports** \- An array containing objects defining the reports to be run and retrieved:  
    * **ReportID** \- The integer ID of the report to be run. This can be found in the report URL when viewing the report in Hornbill Administration.  
    * **ReportName** \- The name of the report to be run.  
@@ -95,7 +95,7 @@ Command Line Parameters:
 
 ## Preparing to run the tool
 
-* Open **conf.json** and add in the necessary configration;
+* Open **conf.json** and add in the necessary configuration;
 * Open Command Line Prompt as Administrator;
 * Change Directory to the folder with goHornbillDataExport\*.\* executables 'C:\\hornbillDataExport  
    * On 32 bit Windows PCs: goHornbillDataExport.exe  

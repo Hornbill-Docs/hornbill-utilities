@@ -55,7 +55,7 @@ IMPORTANT! Both the [HornbillAPI](https://www.powershellgallery.com/packages/Hor
 
 ## Runbooks
 
-We’re provided a number of example Powershell Runbooks to allow your Azure Automation Account (and therefore the Microsoft Operations Management Suite) to interact with your Hornbill instance. Please see the Runbooks themselves for more detailed information regarding input parameters etc:
+We have provided a number of example Powershell Runbooks to allow your Azure Automation Account (and therefore the Microsoft Operations Management Suite) to interact with your Hornbill instance. Please see the Runbooks themselves for more detailed information regarding input parameters etc:
 
 * **[HornbillAzureIntuneAssetImport](https://www.powershellgallery.com/packages/HornbillAzureIntuneAssetImport/)** : Allows the import of asset records from Intune into Hornbill
 * **[HornbillContactArchiveWorkflow](https://www.powershellgallery.com/packages/HornbillContactArchiveWorkflow/)** : Archives a Contact
@@ -67,7 +67,7 @@ We’re provided a number of example Powershell Runbooks to allow your Azure Aut
 * **[HornbillLogServiceRequest](https://www.powershellgallery.com/packages/HornbillLogServiceRequest/)** : Logs a Service Request within Service Manager - this is a Powershell Workflow, and can be called from other Azure Workflow Runbooks (Powershell or Graphical)
 * **[HornbillLogServiceRequestWebhook](https://www.powershellgallery.com/packages/HornbillLogServiceRequestWebhook/)** : Logs a Service Request within Service Manager - this should be called with an Azure Webhook, and is useful when setting up Alerts in Operations Management Suite
 * **[HornbillRequestClose](https://www.powershellgallery.com/packages/HornbillRequestClose/)** : Closes a Service Manager Request
-* **[HornbillRequestResolve](https://www.powershellgallery.com/packages/HornbillRequestResolve/)** : Resolved a Service Manager Request
+* **[HornbillRequestResolve](https://www.powershellgallery.com/packages/HornbillRequestResolve/)** : Resolves a Service Manager Request
 * **[HornbillRequestUpdateDetails](https://www.powershellgallery.com/packages/HornbillRequestUpdateDetails/)** : Updates the details of a Service Manager Request
 * **[HornbillRequestUpdateTimeline](https://www.powershellgallery.com/packages/HornbillRequestUpdateTimeline/)** : Updates the timeline of a Service Manager Request
 * **[HornbillUserAddGroup](https://www.powershellgallery.com/packages/HornbillUserAddGroup/)** : Adds a Hornbill User to a Hornbill Group
