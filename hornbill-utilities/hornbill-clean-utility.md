@@ -10,7 +10,7 @@ This utility permanently deletes various record types from a specified Hornbill 
 
 ## Open Source
 
-The Hornbill Cleaner Utility is provided open source under the Hornbill Community License
+The Hornbill Clean Utility is provided open source under the Hornbill Community License
 
 ## Installation Overview
 
@@ -59,6 +59,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
             "IsGeneralProperty": true
         }
     ],
+    "AssetIDs": [],
     "CleanUsers": true,
     "Users":[
         "UserIDOne",
@@ -125,52 +126,53 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 * **RequestStatuses** : An array containing Status strings to filter the requests for deletion against. An empty array will remove the Status filter, meaning requests at any status will be deleted.
 * **RequestTypes** : An array containing Request Type strings to filter the requests for deletion against. An empty array will remove the Type filter, meaning requests of any Type will be deleted.
 * **RequestLogDateFrom** : A date to filter requests against log date (requests logged after or equal to this date/time). Can take one of the following values:
-        *An empty string will remove the Logged From filter.
-        * A date string in the format YYYY-MM-DD HH:MM:SS.
-        * A duration string, to calculate a new datetime from the current datetime:
-            Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time.
-            See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+  * An empty string will remove the Logged From filter.
+  * A date string in the format YYYY-MM-DD HH:MM:SS.
+  * A duration string, to calculate a new datetime from the current datetime:
+    Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time.
+    See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
 * **RequestLogDateTo** : A date to filter requests against log date (requests logged before or equal to this date/time). Can take one of the following values:
   * An empty string will remove the Logged Before filter.
   * A date string in the format YYYY-MM-DD HH:MM:SS.
-  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details.
+  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details.
 * **RequestClosedDateFrom** : A date to filter requests against close date (requests closed after or equal to this date/time). Can take one of the following values:
   * An empty string will remove the closed From filter.
   * A date string in the format YYYY-MM-DD HH:MM:SS.
-  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
 * **RequestClosedDateTo** : A date to filter requests against close date (requests closed before or equal to this date/time). Can take one of the following values:
   * An empty string will remove the Closed Before filter.
   * A date string in the format YYYY-MM-DD HH:MM:SS.
-  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details.
+  * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details.
 * **RequestReferences** : An array of Request References to delete. If requests are defined in this array, then ONLY these requests will be deleted. The other parameters above will be ignored. In the example above, requests with reference CHR00000021 and INC00000003 would be deleted, and no other requests would be removed.
 * **KeepRequestsCancelBPTasks** : a boolean (defaulting to false) which if set to true will NOT actually delete the selected requests, but will cancel the Business Process Workflow and any Tasks connected to the request.
 
 ### Clean Assets
 
-* **CleanAssets** : Set to true to remove all Assets (and related entity data) from a Hornbill instance
+* **CleanAssets** : Set to **true** to remove assets (and related entity data) from a Hornbill instance.
 * **AssetClassID** : Filter assets for deletion by a single asset class ID (basic, computer, computerPeripheral, mobileDevice, printer, software, telecoms)
 * **AssetFilters** : Array of filters to apply to the query when returning assets to delete. Each object in the array should contain:
-* **ColumnName** : The name of the column in the assets general or extended table;
-* **ColumnValue** : The value to filter by;
-* **Operator** : The operator to apply, can be one of:
-  * `Empty` - column is null or an empty string;
-  * `Equals` - column equals the provided value;
-  * `NotEquals` - column does not equal the provided value;
-  * `Greater` - column value is greater than the provided value;
-  * `Less` - column value is less than than the provided value;
-  * `LastXDays` - date columns, value in the last X days where X is provided in ColumnValue;
-  * `LastMonth` - date columns, value in the last month;
-  * `PreviousMonth` - date columns, value in the previous month;
-  * `ThisMonth` - date columns, value this month;
-  * `LastWeek` - date columns, value last week
-  * `Yesterday` - date columns, value yesterday;
-  * `Today` - date columns, value today;
-  * `Before` - date columns, value before the datetime value provided in ColumnValue;
-  * `After` - date columns, value after the datetime value provided in ColumnValue;
-  * `BeforeXDays` - date columns, before the number of days provided in ColumnValue;
-  * `Regex` - column matches the regular expression provided in ColumnValue;
-  * `NotRegex` - column doesn't match the regular expression provided in ColumnValue;
-* **IsGeneralProperty** : If true, the column exists in the general assets table. If false, the column is in the extended assets table;
+  * **ColumnName** : The name of the column in the assets general or extended table;
+  * **ColumnValue** : The value to filter by;
+  * **Operator** : The operator to apply, can be one of:
+    * `Empty` - column is null or an empty string;
+    * `Equals` - column equals the provided value;
+    * `NotEquals` - column does not equal the provided value;
+    * `Greater` - column value is greater than the provided value;
+    * `Less` - column value is less than the provided value;
+    * `LastXDays` - date columns, value in the last X days where X is provided in ColumnValue;
+    * `LastMonth` - date columns, value in the last month;
+    * `PreviousMonth` - date columns, value in the previous month;
+    * `ThisMonth` - date columns, value this month;
+    * `LastWeek` - date columns, value last week
+    * `Yesterday` - date columns, value yesterday;
+    * `Today` - date columns, value today;
+    * `Before` - date columns, value before the datetime value provided in ColumnValue;
+    * `After` - date columns, value after the datetime value provided in ColumnValue;
+    * `BeforeXDays` - date columns, before the number of days provided in ColumnValue;
+    * `Regex` - column matches the regular expression provided in ColumnValue;
+    * `NotRegex` - column doesn't match the regular expression provided in ColumnValue;
+  * **IsGeneralProperty** : If true, the column exists in the general assets table. If false, the column is in the extended assets table;
+* **AssetIDs**: A list of assets to remove based on their IDs.  This list is an array of strings and each entry must be in quotes, for example: `AssetIDs: ["6467", "6466", "6465", "6464"]`.
 
 ### Clean Users
 
@@ -200,7 +202,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
 ### Clean Supplier Contracts
 
 * **CleanSupplierContracts** - Set to true to remove the Supplier Contracts listed in the SupplierContractIDs array, and all associated records
-* **SupplierContractIDs** : Array of strings, contains a list of all Supplier Contact IDs that should be deleted
+* **SupplierContractIDs** : Array of strings, contains a list of all Supplier Contract IDs that should be deleted
 
 ### Clean Emails
 
@@ -219,17 +221,17 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
   * **ReceivedFrom** - Date/time field, delete all emails with a date/time stamp greater than or equal to this value. Can take one of the following values:
     * An empty string will remove the `ReceivedFrom` filter.
     * A date string in the format YYYY-MM-DD HH:MM:SS.
-    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
   * **ReceivedTo** - Date/time field, delete all emails with a date/time stamp less than or equal to this value. Can take one of the following values:
     * An empty string will remove the `ReceivedTo` filter.
     * A date string in the format YYYY-MM-DD HH:MM:SS.
-    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3H) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
+    * A duration string, to calculate a new datetime from the current datetime: Example: -P1D2H3M4S - This will subtract 1 day (1D), 2 hours (2H), 3 minutes (3M) and 4 seconds (4S) from the current date & time. See the CalculateTimeDuration function documentation in <https://github.com/hornbill/goHornbillHelpers> for more details
   * **Subject** - Filter emails by this subject. Supports % wildcard characters
 
 ### Clean Reports
 
-* **CleanReports** : Set to true to delete any reports, as defined in ReportsIDs below:
-  * **ReportsIDs** - Array of integers, contains a list of all Report IDs that you would like to delete.
+* **CleanReports** : Set to true to delete any reports, as defined in ReportIDs below:
+  * **ReportIDs** - Array of integers, contains a list of all Report IDs that you would like to delete.
 
 ### Clean Chat Sessions
 
@@ -278,7 +280,7 @@ Click the "Reset Counter" button to reset the Auto Value
 
 * **-instance** - This should be the ID of your instance
 * **-apikey** - This should be an API key for a user on your instance that has the correct rights to perform the search & deletion of the specified records
-* **-file** - This is the name of the Configuration file to load. If this parameter is not specified, by default the utility will look for `conf.json'
+* **-file** - This is the name of the Configuration file to load. If this parameter is not specified, by default the utility will look for `conf.json`
 * **-BlockSize x** - Where x is the number of records that should be retrieved and deleted as "blocks". If this parameter is not specified, the default is 3, and under normal circumstances this should not need to be overridden.
 * **-dryrun** - Requires Service Manager build >= 1392 to work with request data. This boolean flag allows a "dry run" to be performed - the tool identifies the primary key for all parent records that would have been deleted, and outputs them to the log file without deleting any records. Defaults to false.
 * **-justrun** - This boolean flag allows you to skip the confirmation prompts when the tool is run. This allows the tool to be scheduled, with the correct configuration defined to delete request records over a certain age for example. Defaults to false.
