@@ -59,7 +59,7 @@ The configuration of this utility is managed through a JSON file (conf.json), wh
             "IsGeneralProperty": true
         }
     ],
-    "AssetIDs": [],
+    "AssetIDs": ["6467", "6466", "6465", "6464"],
     "CleanUsers": true,
     "Users":[
         "UserIDOne",
