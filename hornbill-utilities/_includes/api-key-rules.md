@@ -6,4 +6,4 @@
 > The service account that you create must be of type User (not Basic), and be granted the following roles:
 :::
 
-This utility requires access to the following Hornbill Platform APIs, and your [API Key rules](/esp-fundamentals/security/api-keys#api-key-rules) should reflect those, plus additional security hardening in the form of IP rules:
+This utility requires access to the following Hornbill Platform APIs, and your [API Key rules](/esp-fundamentals/security/api-keys#api-key-security-controls) should reflect those, plus additional security hardening in the form of IP rules:
